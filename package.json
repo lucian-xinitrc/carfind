@@ -1,0 +1,27 @@
+{
+  "name": "carfind",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "crypto": "^1.0.1",
+    "flowbite-react": "^0.12.17",
+    "lucide-react": "^1.28.0",
+    "next": "^16.2.12",
+    "pg": "^8.22.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^10.8.0",
+    "eslint-config-next": "^0.2.4",
+    "tailwindcss": "^4"
+  }
+}
