@@ -60,7 +60,6 @@ export default function Home() {
     <section className="w-full flex justify-center h-screen content-center px-2 sm:mx-0 bg-gray-950">
       <div className="w-2xl px-10 sm:px-30 h-auto bg-gray-950 shadow-xl/10 rounded-lg content-center">
         <h1 className="font-bold text-center text-5xl p-3 mt-20 pb-10 text-white">{login ? ("Login") : ("Register")}</h1>
-        {login ? (
           <form onSubmit={handleLogin}>
           <p className="pt-5 pl-5 font-bold text-1xl">Username</p>
             <input 
@@ -79,49 +78,7 @@ export default function Home() {
             <div className="w-full flex justify-center">
               <button type="submit" className="shadow-lg/30 shadow-[#22467d] w-auto mt-10 border border-solid border-white/[.245] px-10 py-3 mt-5 rounded-full focus:outline-none transition duration-700 ease-in-out hover:bg-white hover:text-black ">Login</button>
             </div>
-            <p className="p-3 text-center text-md"> If you don't have an account yet, you can <button onClick={() => setLogin(false)} className="font-bold">Register </button></p>
-          </form>) : (<form onSubmit={handleSignUp}>
-          <p className="pt-5 pl-5 font-bold text-1xl">Username</p>
-            <input 
-              placeholder=""
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-full focus:outline-none"/>
-            <p className="pt-5 pl-5 font-bold text-1xl">First Name</p>
-            <input 
-              placeholder=""
-              type="text"
-              value={firstname}
-              onChange={(e) => setFirstname(e.target.value)}
-              className="shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-full focus:outline-none"/>
-            <p className="pt-5 pl-5 font-bold text-1xl">Surname</p>
-            <input 
-              placeholder=""
-              type="text"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
-              className="shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-full focus:outline-none"/>
-            <p className="pt-5 pl-5 font-bold text-1xl">Email</p>
-            <input 
-              placeholder=""
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-full focus:outline-none"/>
-            <p className="pt-5 pl-5 font-bold text-1xl">Password</p>
-            <input
-              type="password" 
-              placeholder=""
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-full focus:outline-none"/>
-            <div className="w-full flex justify-center">
-              <button type="submit" className="shadow-lg/30 shadow-[#22467d] w-auto mt-10 border border-solid border-white/[.245] px-10 py-3 mt-5 rounded-full focus:outline-none transition duration-700 ease-in-out hover:bg-white hover:text-black ">Sign Up</button>
-            </div>
-            <p className="p-3 text-center text-md"> If you already have an account yet, you can <button onClick={() => setLogin(true)} className="font-bold">Login </button></p>
           </form>
-          )}
       </div>
     </section>
   );

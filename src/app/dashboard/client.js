@@ -232,21 +232,21 @@ const Dash = ({ username, email }) => {
                                   type="text"
                                   value={fullname}
                                   onChange={(e) => setFullname(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Phone Number</p>
                                 <input 
                                   placeholder=""
                                   type="text"
                                   value={phone}
                                   onChange={(e) => setPhone(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Details</p>
                                 <input 
                                   placeholder=""
                                   type="text"
                                   value={details}
                                   onChange={(e) => setDetails(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Location</p>
                                 <input 
                                   placeholder=""
@@ -276,14 +276,14 @@ const Dash = ({ username, email }) => {
                                   type="text"
                                   value={name}
                                   onChange={(e) => setName(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Fuel</p>
                                 <input 
                                   placeholder=""
                                   type="text"
                                   value={fuel}
                                   onChange={(e) => setFuel(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Year</p>
                                 <input 
@@ -291,7 +291,7 @@ const Dash = ({ username, email }) => {
                                   type="text"
                                   value={year}
                                   onChange={(e) => setYear(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Km</p>
                                 <input 
@@ -299,14 +299,14 @@ const Dash = ({ username, email }) => {
                                   type="text"
                                   value={km}
                                   onChange={(e) => setKm(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Vin</p>
                                 <input 
                                   placeholder=""
                                   type="text"
                                   value={vin}
                                   onChange={(e) => setVin(e.target.value)}
-                                  className="text-white rounded-lg shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+                                  className="text-white shadow-lg/30 shadow-[#22467d] w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
                                 <p className="text-white pt-5 pl-5 font-bold text-1xl">Previous Owners</p>
                                 <input 
                                   placeholder=""
@@ -324,7 +324,7 @@ const Dash = ({ username, email }) => {
                             
                             </div>
                       </ModalBody>
-                      <ModalFooter className="bg-[#16193a] border-t-[3px]">
+                      <ModalFooter className="bg-[#16193a]">
                        <div className="w-full flex justify-center py-5">
                       <button type="submit" className="text-white w-auto border border-solid border-white/[.245] px-10 py-2 rounded-full focus:outline-none transition duration-700 ease-in-out hover:bg-white hover:text-black mr-5">Submit</button>
                       <button className="text-white w-auto border border-solid border-white/[.245] px-10 py-2 rounded-full focus:outline-none transition duration-700 ease-in-out hover:bg-white hover:text-black " onClick={() => setOpenModalAdd(false)}>Close</button>
