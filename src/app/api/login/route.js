@@ -13,7 +13,7 @@ export async function POST(req) {
 	try {
 		const {username, password} = await req.json();
 
-		if(username === "Cusmir" && password === "fordfusion2003vivi") {
+		if(username === "lucian1202" && password === "12021908") {
 			console.log("Password correct!");
 			const cookieStore = await cookies();
 

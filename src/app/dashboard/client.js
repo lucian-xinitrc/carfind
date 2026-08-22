@@ -31,6 +31,26 @@ const Dash = ({ username, email }) => {
   const [dealers, setDealers] = useState([] || null);
   const [runFunc, setFunc] = useState("enabled");
 
+  const [budget, setBudget] = useState("");
+  const [total, setTotal] = useState("")
+
+  const getBudget = async () => {
+    const res = await fetch("/api/getBudgets");
+    const data = await res.json();
+    console.log(data.total);
+    setBudget(data.total);
+  };
+
+  useEffect(() => {
+  getBudget();
+
+  const interval = setInterval(() => {
+    getBudget();
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
   const getDealers = async() => {
     const res = await fetch("/api/getDealers");
       const data = await res.json();
@@ -39,6 +59,7 @@ const Dash = ({ username, email }) => {
 
   if(runFunc === "enabled") {
     getDealers();
+    getBudget();
     setFunc("disabled");
   }
 
@@ -60,6 +81,8 @@ const Dash = ({ username, email }) => {
     const data = await res.json();
     setCars(data);
   }
+
+  
   
 
   const handleSubmitDealer = async(e) => {
@@ -116,46 +139,56 @@ const Dash = ({ username, email }) => {
       alert("Something went wrong!");
     }
   }
+
+  const addBudget = async(e) => {
+    e.preventDefault();
+    const res = await fetch("/api/addBudget",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        budget,
+        total,
+      })
+    })
+
+    if(res.ok) {
+      alert("Inserted!");
+      setTotal("");
+    } else {
+      alert("Something went wrong!");
+    }
+  }
+
   return (
     <>
-    <section className="bg-gray-950 no-scrollbar">
+    <section className="bg-gray-950 no-scrollbar mt-20">
     {selected ? (
       <> 
-      <h1 className="dark:text-white text-[#0c4663] text-center font-bold text-4xl pt-20">Welcome</h1>
+      
       <div className="w-full justify-center flex gap-2">
-        <Button 
-            className="py-2 gap-2 text-md font-bold text-left px-5 flex gap- bg-transparent mt-5 border-0 border border-[1px] border-[#3b3b5d] rounded-none hover:cursor-pointer shadow-lg/20 hover:shadow-lg/50 hover:shadow-[#22467d] rounded-full dark:text-white text-[#0c4663]"
-            onClick={() => {setOpenModalModify(true)}}> 
-            <Plus /> Dealer
-        </Button>
+        
       </div>
+      
       <div className="bg-gray-950 flex justify-center px-5 py-10 px-2 w-screen">
         <div>
 
-          {dealers?.map((dealer, DealerIdx) => (
-                        
-            <button
-              key={DealerIdx}
-              className="w-full mt-5 pb-5 px-5 w-full shadow-lg/10 shadow-slate-900 border border-slate-700"     
-              onClick={() => {
-                setSelected(false);
-                setSelectedId(String(dealer.id)); 
-                setDealerName(dealer.fullname);
-                setDealerPhone(dealer.phone);
-                setDealerDetails(dealer.details);
-                setDealerLocation(dealer.location);
-                setCarNew(dealer.id);
-                
-              }}
-            >
-              <div className="w-full p-2">
-              <h1 className="text-left py-5 text-2xl">{dealer.fullname}</h1>
-              <div className="flex ml-5">
-                <p className="flex py-2 px-4 text-sm bg-orange-300 text-black rounded-full text-center gap-1 font-bold"> <MapPin /> {dealer.location}</p>
+          <h1 className="text-5xl text-center font-bold flex justify-center">{budget} <p className="text-xl pt-5 pl-2">ron</p></h1>
+          <h2 className="text-2xl text-center font-bold text-center font-bold flex justify-center">{budget - total} <p className="text-lg pt-1 pl-2">ron</p></h2>
+           <div className="justify-center flex m-4">{(budget - total) > 100 ? (<p className="py-1 px-4 text-sm bg-orange-300 text-black rounded-full text-center">100 ron for gas</p>) : (<p className="py-1 px-4 text-sm bg-red-500 text-black rounded-full text-center">{(70/100) * budget} ron diesel</p>)}
+           </div> {total ? (<div className="justify-center flex m-4">{((total) <= ((40/100) * (budget - 100 - 50))) ? (<p className="mt-2 py-1 px-4 text-sm bg-green-300 text-black rounded-full text-center">Okay</p>) : (<p className="py-1 px-4 text-sm bg-red-500 text-black rounded-full text-center">You do not afford it.</p>)}</div>):("")}
+          <form onSubmit={addBudget}>
+          <p className="text-white pt-5 pl-5 font-bold text-1xl">Add a price</p>
+            <input 
+              placeholder=""
+              type="text"
+              value={total}
+              onChange={(e) => setTotal(e.target.value)}
+              className="text-white w-full border border-solid border-white/[.245] px-7 py-3 mt-5 rounded-2xl focus:outline-none"/>
+
+              <div className="justify-center flex m-4">
+                <button type="submit" className="text-white w-auto border border-solid border-white/[.245] px-10 py-2 rounded-2xl focus:outline-none transition duration-700 ease-in-out hover:bg-white hover:text-black mr-5">Submit</button>
               </div>
-              </div>            
-            </button>
-          ))}
+          </form>
         </div>
       </div>
     </>) : (
