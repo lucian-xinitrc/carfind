@@ -175,7 +175,7 @@ const Dash = ({ username, email }) => {
           <h1 className="text-5xl text-center font-bold flex justify-center">{budget} <p className="text-xl pt-5 pl-2">ron</p></h1>
           <h2 className="text-2xl text-center font-bold text-center font-bold flex justify-center">{budget - total} <p className="text-lg pt-1 pl-2">ron</p></h2>
            <div className="justify-center flex m-4">{(budget - total) > 100 ? (<p className="py-1 px-4 text-sm bg-orange-300 text-black rounded-full text-center">100 ron for gas</p>) : (<p className="py-1 px-4 text-sm bg-red-500 text-black rounded-full text-center">{(70/100) * budget} ron diesel</p>)}
-           </div> {total ? (<div className="justify-center flex m-4">{((total) <= ((40/100) * (budget - 100 - 50))) ? (<p className="mt-2 py-1 px-4 text-sm bg-green-300 text-black rounded-full text-center">Okay</p>) : (<p className="py-1 px-4 text-sm bg-red-500 text-black rounded-full text-center">You do not afford it.</p>)}</div>):("")}
+           </div> {total ? (<div className="justify-center flex m-4">{((total) <= ((40/100) * (budget - 100))) ? (<p className="mt-2 py-1 px-4 text-sm bg-green-300 text-black rounded-full text-center">Okay</p>) : (<p className="py-1 px-4 text-sm bg-red-500 text-black rounded-full text-center">You do not afford it.</p>)}</div>):("")}
           <form onSubmit={addBudget}>
           <p className="text-white pt-5 pl-5 font-bold text-1xl">Add a price</p>
             <input 
